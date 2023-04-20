@@ -85,6 +85,7 @@ RUN git clone -b "${NODENV_VERSION}" --single-branch https://github.com/nodenv/n
 #------------------------------------
 #  Install Node
 #------------------------------------
+# renovate: datasource=github-tags depName=nodejs/node versioning=node
 ARG NODE_VERSION=18.16.0
 ENV NODENV_VERSION=${NODE_VERSION}
 RUN \
@@ -96,7 +97,8 @@ RUN \
 #------------------------------------
 #  Install Yarn
 #------------------------------------
-ARG YARN_VERSION=1.22.19
+# renovate: datasource=github-releases depName=yarnpkg/berry
+ARG YARN_VERSION=v3.5.0
 ENV PATH="${WORK_DIR}/node_modules/.bin:${PATH}"
 RUN corepack enable && \
   corepack prepare "yarn@${YARN_VERSION}" --activate && \
