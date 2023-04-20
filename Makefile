@@ -21,4 +21,8 @@ build:
 	COMMIT_IMAGE_TAG=$(commit-image-tag) \
 	$(DOCKER_COMPOSE) build \
 	  --pull \
-	  --progress=plain
+	  $(BUILD_FLAGS)
+
+.PHONY: clean-build
+clean-build:
+	BUILD_FLAGS=--no-cache make build

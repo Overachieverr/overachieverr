@@ -98,17 +98,19 @@ RUN \
 #  Install Yarn
 #------------------------------------
 # renovate: datasource=github-releases depName=yarnpkg/berry
-ARG YARN_VERSION=v3.5.0
+ARG YARN_VERSION=3.5.0
 ENV PATH="${WORK_DIR}/node_modules/.bin:${PATH}"
 RUN corepack enable && \
   corepack prepare "yarn@${YARN_VERSION}" --activate && \
+  runuser -u ${USER} -- corepack prepare "yarn@${YARN_VERSION}" --activate && \
   nodenv rehash
 
 #------------------------------------
 #  Install Node packages
 #------------------------------------
-#COPY yarn.lock .
-#RUN yarn install --immutable --immutable-cache --check-cache --inline-builds
+COPY .yarn ./.yarn
+COPY .yarnrc.yml package.json yarn.lock ./
+RUN yarn install --immutable --immutable-cache --check-cache --inline-builds
 
 #------------------------------------
 #  Install fixuid
