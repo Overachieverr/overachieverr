@@ -10,7 +10,7 @@ DOCKER_COMPOSE = HOST_UID=$(HOST_UID) HOST_GID=$(HOST_GID) docker-compose
 all: build run
 
 .PHONY: run
-run: build
+run:
 	$(DOCKER_COMPOSE) up -d
 	$(DOCKER_COMPOSE) exec ${image} bash
 
