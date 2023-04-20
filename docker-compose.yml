@@ -9,9 +9,9 @@ services:
     image: overachieverr:dev
     user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
     ports:
-      - 127.0.0.1:8000:8000
+      - 127.0.0.1:3000:3000
     volumes:
       - "./:/app"
-      - "~/.ssh:/home/abc/.ssh"
-      - "~/.gnupg:/home/abc/.gnupg"
-      - "~/.gitconfig:/home/abc/.gitconfig"
+      - "~/.ssh:/home/dev/.ssh"
+      - "~/.gnupg:/home/dev/.gnupg"
+      - "~/.gitconfig:/home/dev/.gitconfig"

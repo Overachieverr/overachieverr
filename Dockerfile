@@ -176,7 +176,7 @@ USER ${USER}:${USER}
 # Set ENTRYPOINT and CMD
 #------------------------------------
 ENTRYPOINT [ "fixuid", "-q" ]
-#CMD [ "yarn", "start:dev" ]
+CMD [ "yarn", "start:dev" ]
 
 #------------------------------------
 # Configure environment
