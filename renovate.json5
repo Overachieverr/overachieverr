@@ -23,7 +23,7 @@
   ],
   postUpdateOptions: [
     "yarnDedupeHighest",
-  ]
+  ],
   // See https://docs.renovatebot.com/modules/manager/regex/ for details on how the following section works
   regexManagers: [
     // Adapted from https://docs.renovatebot.com/presets-regexManagers/#regexmanagersdockerfileversions
