@@ -16,10 +16,11 @@
     // By default, we want almost every type of update in a single PR,
     // unless it's a major update and might have some backwards-incompatible change in it.
     {
+      automerge: true,
+      groupName: "all (non-major)",
       matchPackagePatterns: ".*",
       matchUpdateTypes: ["minor", "patch", "pin", "digest", "pinDigest"],
-      groupName: "standard",
-      automerge: true,
+      minimumReleaseAge: "3 days",
     },
   ],
   postUpdateOptions: [
