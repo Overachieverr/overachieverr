@@ -1,0 +1,44 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["config:base"],
+  lockFileMaintenance: {
+    enabled: true,
+    // This has to be declared here, for some reason the top-level schedule isn't respected by lockFileMaintenance
+    schedule: ["before 6am on Wednesday"],
+    automerge: true,
+  },
+  platformAutomerge: true,
+  platformCommit: true,
+  "pre-commit": {
+    enabled: true,
+  },
+  packageRules: [
+    // By default, we want almost every type of update in a single PR,
+    // unless it's a major update and might have some backwards-incompatible change in it.
+    {
+      matchPackagePatterns: ".*",
+      matchUpdateTypes: ["minor", "patch", "pin", "digest", "pinDigest"],
+      groupName: "standard",
+      automerge: true,
+    },
+  ],
+  postUpdateOptions: [
+    "yarnDedupeHighest",
+  ],
+  // See https://docs.renovatebot.com/modules/manager/regex/ for details on how the following section works
+  regexManagers: [
+    // Adapted from https://docs.renovatebot.com/presets-regexManagers/#regexmanagersdockerfileversions
+    {
+      fileMatch: ["(^|/|.)Dockerfile$", "(^|/)Dockerfile[^/]*$"],
+      matchStrings: [
+        '# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>[^\\s]+?)(?: (lookupName|packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[a-z-0-9]+?))?\\s(?:ENV|ARG) .+?_VERSION="?(?<currentValue>.+?)"?\\s',
+      ],
+      // The versioning is semver by default, but a lot of the CLI tools have a 'v' prefix, which isn't strictly semver
+      // The semver-coerced versioning feature handle this case
+      versioningTemplate: "{{#if versioning}}{{{versioning}}}{{else}}semver-coerced{{/if}}",
+    },
+  ],
+  schedule: ["before 6am on Wednesday"],
+  separateMajorMinor: true,
+  timezone: "America/Los_Angeles",
+}
