@@ -1405,17 +1405,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 18.16.1
-  resolution: "@types/node@npm:18.16.1"
-  checksum: 799026b949a48993cba7c9b81b2eabfdfb34c880744cb44c1c990fbedc9e315f3634d126eb2cf9a6e0795577c01016e2326d98565bef695ada9d363fadeb6946
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:18.16.0":
-  version: 18.16.0
-  resolution: "@types/node@npm:18.16.0"
-  checksum: 63e0042136663b9e85ce503a4c65406cc6621fdba63ea66c74b4b1364a9aa9bdb57cadcb76696abab177f38a819b0fa6ace9e7f1647dcb990aedb1b4bd01012f
+"@types/node@npm:*, @types/node@npm:18.16.3":
+  version: 18.16.3
+  resolution: "@types/node@npm:18.16.3"
+  checksum: 816b39d45b05ebdc6f362b630970df3f6d82f71d418a2555353522f4eeeb078fa201de5299f02c09a09faa975e43b2745fe19c263d44069f87ddf37d6c37b717
   languageName: node
   linkType: hard
 
@@ -4701,8 +4694,8 @@ __metadata:
   linkType: hard
 
 "json-api-nestjs@npm:^4.2.11":
-  version: 4.2.14
-  resolution: "json-api-nestjs@npm:4.2.14"
+  version: 4.2.15
+  resolution: "json-api-nestjs@npm:4.2.15"
   peerDependencies:
     "@nestjs/common": ^9.0.0
     "@nestjs/core": ^9.0.0
@@ -4715,7 +4708,7 @@ __metadata:
     rxjs: ~7.5.0
     tslib: ^2.3.0
     typeorm: ^0.3.10
-  checksum: 35c8ef82f4f77eaa1eeecb182e02d5de5a154c50bb451de443d367f00a1ed442af9921f97eaff162055b4e9dedd8530e62eaf134c58fff242e81ed98ec9776d1
+  checksum: 387c3d7d5b9ed624e75f71d287fc7198cbe828e9a03be3798954627502922004386149ed4279d60d357551d7ac05747effb463a7ecced8eb20db0b6a888356b3
   languageName: node
   linkType: hard
 
@@ -5490,7 +5483,7 @@ __metadata:
     "@nestjs/typeorm": ^9.0.1
     "@types/express": ^4.17.13
     "@types/jest": 29.5.1
-    "@types/node": 18.16.0
+    "@types/node": 18.16.3
     "@types/supertest": ^2.0.11
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@typescript-eslint/parser": ^5.0.0
@@ -6081,11 +6074,11 @@ __metadata:
   linkType: hard
 
 "rxjs@npm:^7.2.0, rxjs@npm:^7.5.5":
-  version: 7.8.0
-  resolution: "rxjs@npm:7.8.0"
+  version: 7.8.1
+  resolution: "rxjs@npm:7.8.1"
   dependencies:
     tslib: ^2.1.0
-  checksum: 61b4d4fd323c1043d8d6ceb91f24183b28bcf5def4f01ca111511d5c6b66755bc5578587fe714ef5d67cf4c9f2e26f4490d4e1d8cabf9bd5967687835e9866a2
+  checksum: de4b53db1063e618ec2eca0f7965d9137cabe98cf6be9272efe6c86b47c17b987383df8574861bcced18ebd590764125a901d5506082be84a8b8e364bf05f119
   languageName: node
   linkType: hard
 
