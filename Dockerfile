@@ -33,6 +33,8 @@ RUN apt-get update && \
   vim \
   less \
   unzip \
+  # For database interaction
+  sqlite3 \
   # For web interaction
   httpie \
   curl \
@@ -109,8 +111,8 @@ RUN corepack enable && \
 #  Install Node packages
 #------------------------------------
 COPY .yarn ./.yarn
-COPY .yarnrc.yml package.json yarn.lock ./
-RUN yarn install --immutable --immutable-cache --check-cache --inline-builds
+COPY .pnp.cjs .yarnrc.yml package.json yarn.lock ./
+RUN yarn install --immutable --immutable-cache --inline-builds
 
 #------------------------------------
 #  Install fixuid
