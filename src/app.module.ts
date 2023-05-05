@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { JsonApiModule } from 'json-api-nestjs';
 import { User } from './users/user.entity';
-import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -11,7 +11,12 @@ import { UsersModule } from './users/users.module';
       synchronize: process.env.NODE_ENV !== 'production',
       entities: [User],
     }),
-    UsersModule,
+    JsonApiModule.forRoot({
+      entities: [User],
+      options: {
+        requiredSelectField: false
+      }
+    })
   ],
 })
 export class AppModule {}
