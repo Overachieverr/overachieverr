@@ -8,7 +8,7 @@ import { UsersModule } from './users/users.module';
     TypeOrmModule.forRoot({
       type: 'better-sqlite3',
       database: '/app/db.sqlite3',
-      synchronize: process.env.NODE_ENV !== "production",
+      synchronize: process.env.NODE_ENV !== 'production',
       entities: [User],
     }),
     UsersModule,
