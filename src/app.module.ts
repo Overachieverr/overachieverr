@@ -11,12 +11,6 @@ import { User } from './users/user.entity';
       synchronize: process.env.NODE_ENV !== 'production',
       entities: [User],
     }),
-    JsonApiModule.forRoot({
-      entities: [User],
-      options: {
-        requiredSelectField: false
-      }
-    })
   ],
 })
 export class AppModule {}

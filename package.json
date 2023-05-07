@@ -23,26 +23,20 @@
    },
    "dependencies": {
       "@nestjs/axios": "^2.0.0",
-      "@nestjs/bull": "^0.6.3",
       "@nestjs/common": "^9.0.0",
       "@nestjs/core": "^9.0.0",
       "@nestjs/platform-express": "^9.0.0",
       "@nestjs/schedule": "^2.2.1",
       "@nestjs/swagger": "^6.3.0",
       "@nestjs/terminus": "^9.2.2",
-      "@nestjs/typeorm": "^9.0.1",
-      "ajv": "^8.12.0",
       "axios": "^1.4.0",
       "better-sqlite3": "^8.3.0",
-      "bull": "^4.10.4",
       "class-transformer": "^0.5.1",
       "class-validator": "^0.14.0",
-      "json-api-nestjs": "^4.2.11",
       "pg": "^8.4.0",
       "reflect-metadata": "^0.1.13",
       "rxjs": "^7.2.0",
-      "tslib": "^2.5.0",
-      "typeorm": "^0.3.15"
+      "tslib": "^2.5.0"
    },
    "devDependencies": {
       "@faker-js/faker": "^7.6.0",
@@ -89,6 +83,6 @@
       "testEnvironment": "node"
    },
    "prettier": {
-    "trailingComma": "all"
+      "trailingComma": "all"
    }
 }
