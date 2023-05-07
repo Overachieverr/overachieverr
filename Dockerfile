@@ -111,7 +111,7 @@ RUN corepack enable && \
 #  Install Node packages
 #------------------------------------
 COPY .yarn ./.yarn
-COPY .pnp.cjs .yarnrc.yml package.json yarn.lock ./
+COPY .pnp.cjs .pnp.loader.mjs .yarnrc.yml package.json yarn.lock ./
 RUN yarn install --immutable --immutable-cache --inline-builds
 
 #------------------------------------
