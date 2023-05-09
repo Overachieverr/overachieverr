@@ -10,6 +10,9 @@ services:
     user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
     ports:
       - 127.0.0.1:3000:3000
+    environment:
+      DATABASE_TYPE: sqlite
+      DATABASE_URL: "file:/app/db.sqlite3"
     volumes:
       - "./:/app"
       - "~/.ssh:/home/dev/.ssh"

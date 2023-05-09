@@ -1,16 +1,10 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { JsonApiModule } from 'json-api-nestjs';
-import { User } from './users/user.entity';
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'better-sqlite3',
-      database: '/app/db.sqlite3',
-      synchronize: process.env.NODE_ENV !== 'production',
-      entities: [User],
-    }),
-  ],
+  imports: [],
+  controllers: [UserController],
+  providers: [UserService],
 })
 export class AppModule {}
