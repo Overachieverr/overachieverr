@@ -45,3 +45,6 @@ lerna-debug.log*
 
 # Database files
 *.sqlite*
+
+# Prisma generated client
+prisma/client
