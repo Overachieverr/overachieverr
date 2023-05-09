@@ -72,49 +72,6 @@ RUN groupadd --gid $UID $USER && \
   chown ${USER}:${USER} $HOME_DIR/.bash_aliases
 
 #------------------------------------
-#  Install nodeenv
-#------------------------------------
-# renovate: datasource=github-releases depName=nodenv/nodenv
-ARG NODENV_VERSION=v1.4.1
-# renovate: datasource=github-releases depName=nodenv/node-build
-ARG NODE_BUILD_VERSION=v4.9.113
-ENV NODENV_ROOT="/usr/local/nodenv"
-ENV PATH="${NODENV_ROOT}/shims:${NODENV_ROOT}/bin:${PATH}"
-RUN git clone -b "${NODENV_VERSION}" --single-branch https://github.com/nodenv/nodenv.git ${NODENV_ROOT} && \
-  mkdir -p "${NODENV_ROOT}/plugins" && \
-  git clone -b "${NODE_BUILD_VERSION}" --single-branch https://github.com/nodenv/node-build.git "${NODENV_ROOT}/plugins/node-build"
-
-#------------------------------------
-#  Install Node
-#------------------------------------
-# renovate: datasource=github-tags depName=nodejs/node versioning=node
-ARG NODE_VERSION=18.16.0
-ENV NODENV_VERSION=${NODE_VERSION}
-RUN \
-  # Set this env var so that root sees it inside the container
-  echo "export NODEENV_VERSION=${NODENV_VERSION}" >> /root/.bashrc && \
-  nodenv install ${NODE_VERSION} && \
-  eval "$(nodenv init -)"
-
-#------------------------------------
-#  Install Yarn
-#------------------------------------
-# renovate: datasource=github-releases depName=yarnpkg/berry
-ARG YARN_VERSION=3.5.0
-ENV PATH="${WORK_DIR}/node_modules/.bin:${PATH}"
-RUN corepack enable && \
-  corepack prepare "yarn@${YARN_VERSION}" --activate && \
-  runuser -u ${USER} -- corepack prepare "yarn@${YARN_VERSION}" --activate && \
-  nodenv rehash
-
-#------------------------------------
-#  Install Node packages
-#------------------------------------
-COPY .yarn ./.yarn
-COPY .pnp.cjs .pnp.loader.mjs .yarnrc.yml package.json yarn.lock ./
-RUN yarn install --immutable --immutable-cache --inline-builds
-
-#------------------------------------
 #  Install fixuid
 #------------------------------------
 # renovate: datasource=github-releases depName=boxboat/fixuid
@@ -158,6 +115,49 @@ RUN \
 ARG SHFMT_VERSION=v3.6.0
 RUN curl -sSL https://github.com/mvdan/sh/releases/download/${SHFMT_VERSION}/shfmt_${SHFMT_VERSION}_${TARGETOS}_${TARGETARCH} > /usr/local/bin/shfmt && \
   chmod 755 /usr/local/bin/shfmt
+
+#------------------------------------
+#  Install nodeenv
+#------------------------------------
+# renovate: datasource=github-releases depName=nodenv/nodenv
+ARG NODENV_VERSION=v1.4.1
+# renovate: datasource=github-releases depName=nodenv/node-build
+ARG NODE_BUILD_VERSION=v4.9.113
+ENV NODENV_ROOT="/usr/local/nodenv"
+ENV PATH="${NODENV_ROOT}/shims:${NODENV_ROOT}/bin:${PATH}"
+RUN git clone -b "${NODENV_VERSION}" --single-branch https://github.com/nodenv/nodenv.git ${NODENV_ROOT} && \
+  mkdir -p "${NODENV_ROOT}/plugins" && \
+  git clone -b "${NODE_BUILD_VERSION}" --single-branch https://github.com/nodenv/node-build.git "${NODENV_ROOT}/plugins/node-build"
+
+#------------------------------------
+#  Install Node
+#------------------------------------
+# renovate: datasource=github-tags depName=nodejs/node versioning=node
+ARG NODE_VERSION=18.16.0
+ENV NODENV_VERSION=${NODE_VERSION}
+RUN \
+  # Set this env var so that root sees it inside the container
+  echo "export NODEENV_VERSION=${NODENV_VERSION}" >> /root/.bashrc && \
+  nodenv install ${NODE_VERSION} && \
+  eval "$(nodenv init -)"
+
+#------------------------------------
+#  Install Yarn
+#------------------------------------
+# renovate: datasource=github-releases depName=yarnpkg/berry
+ARG YARN_VERSION=3.5.0
+ENV PATH="${WORK_DIR}/node_modules/.bin:${PATH}"
+RUN corepack enable && \
+  corepack prepare "yarn@${YARN_VERSION}" --activate && \
+  runuser -u ${USER} -- corepack prepare "yarn@${YARN_VERSION}" --activate && \
+  nodenv rehash
+
+#------------------------------------
+#  Install Node packages
+#------------------------------------
+COPY .yarn ./.yarn
+COPY .pnp.cjs .pnp.loader.mjs .yarnrc.yml package.json yarn.lock ./
+RUN yarn install --immutable --immutable-cache --inline-builds
 
 #------------------------------------
 #  Finish up as root
