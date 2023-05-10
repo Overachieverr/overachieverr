@@ -1,11 +1,5 @@
 {
-   "name": "overachieverr",
-   "version": "0.1.0",
-   "description": "Self-hosted achievement tracking",
-   "author": "Overachieverr Devs",
    "private": true,
-   "license": "GPL-3.0-only",
-   "packageManager": "yarn@3.5.0",
    "scripts": {
       "build": "yarn nest build",
       "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -22,9 +16,13 @@
       "prisma": "pnpify prisma"
    },
    "dependencies": {
+      "@apollo/server": "^4.7.1",
+      "@nestjs/apollo": "^11.0.5",
       "@nestjs/axios": "^2.0.0",
       "@nestjs/common": "^9.0.0",
+      "@nestjs/config": "^2.3.1",
       "@nestjs/core": "^9.0.0",
+      "@nestjs/graphql": "^11.0.5",
       "@nestjs/platform-express": "^9.0.0",
       "@nestjs/schedule": "^2.2.1",
       "@nestjs/swagger": "^6.3.0",
@@ -34,6 +32,7 @@
       "axios": "^1.4.0",
       "class-transformer": "^0.5.1",
       "class-validator": "^0.14.0",
+      "graphql": "^16.6.0",
       "pg": "^8.4.0",
       "reflect-metadata": "^0.1.13",
       "rxjs": "^7.2.0",
@@ -66,25 +65,5 @@
       "tsconfig-paths": "^4.2.0",
       "typescript": "^5.0.0",
       "webpack": "^5.82.0"
-   },
-   "jest": {
-      "moduleFileExtensions": [
-         "js",
-         "json",
-         "ts"
-      ],
-      "rootDir": "src",
-      "testRegex": ".*\\.spec\\.ts$",
-      "transform": {
-         "^.+\\.(t|j)s$": "ts-jest"
-      },
-      "collectCoverageFrom": [
-         "**/*.(t|j)s"
-      ],
-      "coverageDirectory": "../coverage",
-      "testEnvironment": "node"
-   },
-   "prettier": {
-      "trailingComma": "all"
    }
 }
