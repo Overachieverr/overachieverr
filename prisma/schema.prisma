@@ -6,12 +6,12 @@ generator client {
   output   = "./client"
 }
 
-datasource db {
+datasource sqlite {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
 model User {
   id    Int    @id @default(autoincrement())
-  email String @unique @db.VarChar(254)
+  email String @unique
 }

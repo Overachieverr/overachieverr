@@ -29,6 +29,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["@apollo/server", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:4.7.1"],\
+            ["@apollo/subgraph", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.4.3"],\
             ["@faker-js/faker", "npm:7.6.0"],\
             ["@nestjs/apollo", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:11.0.5"],\
             ["@nestjs/axios", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.0.0"],\
@@ -223,6 +224,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@apollo/federation-internals", [\
+        ["npm:2.4.3", {\
+          "packageLocation": "./.yarn/cache/@apollo-federation-internals-npm-2.4.3-d71d089791-c2f50a3b21.zip/node_modules/@apollo/federation-internals/",\
+          "packageDependencies": [\
+            ["@apollo/federation-internals", "npm:2.4.3"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:f6ed5dfd8e7a9176c35c037406505e44c1a49d2f8e6eea75e53bfb081ff06a205f509b260b3395c4f2bab07c9f12bb43f8e61dd66d3b5be6e6c94ee2ea55490a#npm:2.4.3", {\
+          "packageLocation": "./.yarn/__virtual__/@apollo-federation-internals-virtual-a6be58b39f/0/cache/@apollo-federation-internals-npm-2.4.3-d71d089791-c2f50a3b21.zip/node_modules/@apollo/federation-internals/",\
+          "packageDependencies": [\
+            ["@apollo/federation-internals", "virtual:f6ed5dfd8e7a9176c35c037406505e44c1a49d2f8e6eea75e53bfb081ff06a205f509b260b3395c4f2bab07c9f12bb43f8e61dd66d3b5be6e6c94ee2ea55490a#npm:2.4.3"],\
+            ["@types/graphql", null],\
+            ["@types/uuid", "npm:9.0.1"],\
+            ["chalk", "npm:4.1.2"],\
+            ["graphql", "npm:16.6.0"],\
+            ["js-levenshtein", "npm:1.1.6"],\
+            ["uuid", "npm:9.0.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/graphql",\
+            "graphql"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@apollo/protobufjs", [\
         ["npm:1.2.7", {\
           "packageLocation": "./.yarn/unplugged/@apollo-protobufjs-npm-1.2.7-6c6eb49b51/node_modules/@apollo/protobufjs/",\
@@ -337,6 +364,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packagePeers": [\
             "@apollo/server",\
             "@types/apollo__server"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@apollo/subgraph", [\
+        ["npm:2.4.3", {\
+          "packageLocation": "./.yarn/cache/@apollo-subgraph-npm-2.4.3-66e26a70ff-aa6dfaf9e8.zip/node_modules/@apollo/subgraph/",\
+          "packageDependencies": [\
+            ["@apollo/subgraph", "npm:2.4.3"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.4.3", {\
+          "packageLocation": "./.yarn/__virtual__/@apollo-subgraph-virtual-f6ed5dfd8e/0/cache/@apollo-subgraph-npm-2.4.3-66e26a70ff-aa6dfaf9e8.zip/node_modules/@apollo/subgraph/",\
+          "packageDependencies": [\
+            ["@apollo/subgraph", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.4.3"],\
+            ["@apollo/cache-control-types", "virtual:63377e3831e6fd70d30238c52dd527d37fb82a105215f64cc813042bf973d19427e206b0d075ba492fd3d93d4e1d70b23fac5fb2b4b19af69376fd046147947b#npm:1.0.2"],\
+            ["@apollo/federation-internals", "virtual:f6ed5dfd8e7a9176c35c037406505e44c1a49d2f8e6eea75e53bfb081ff06a205f509b260b3395c4f2bab07c9f12bb43f8e61dd66d3b5be6e6c94ee2ea55490a#npm:2.4.3"],\
+            ["@types/graphql", null],\
+            ["graphql", "npm:16.6.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/graphql",\
+            "graphql"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2008,7 +2059,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/gateway", null],\
             ["@apollo/server", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:4.7.1"],\
             ["@apollo/server-plugin-landing-page-graphql-playground", "virtual:6ce54626659de7ac249709e49beff6dc2ee6876f6e6e194741fc6ec437209073e89373faa66322f76c17e7666ee635dd1345cbea93e1e9e15d1c3c361b8fe3a1#npm:4.0.0"],\
-            ["@apollo/subgraph", null],\
+            ["@apollo/subgraph", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.4.3"],\
             ["@as-integrations/fastify", null],\
             ["@nestjs/common", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:9.4.0"],\
             ["@nestjs/core", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:9.4.0"],\
@@ -2247,7 +2298,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/__virtual__/@nestjs-graphql-virtual-fe8882f581/0/cache/@nestjs-graphql-npm-11.0.5-3ce77defd1-f8ca893fc2.zip/node_modules/@nestjs/graphql/",\
           "packageDependencies": [\
             ["@nestjs/graphql", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:11.0.5"],\
-            ["@apollo/subgraph", null],\
+            ["@apollo/subgraph", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.4.3"],\
             ["@graphql-tools/merge", "virtual:fe8882f581b422cc79538f464242ad534afbf3b0f3a4fcc9c3ed6a7c2c8eb33dfce7e3e0baf96b70a6e49bf80fe6d3ff75ad332624f12f561fd788880c0b05d4#npm:8.4.0"],\
             ["@graphql-tools/schema", "virtual:fe8882f581b422cc79538f464242ad534afbf3b0f3a4fcc9c3ed6a7c2c8eb33dfce7e3e0baf96b70a6e49bf80fe6d3ff75ad332624f12f561fd788880c0b05d4#npm:9.0.17"],\
             ["@graphql-tools/utils", "virtual:3780b37f609468540ab5942ba8da1c15efd6504a4ee5da4acf61b5a1471451a8f6abd773dee293771e0994342c73002c2f8969e805a47349720fe75112880bef#npm:9.2.1"],\
@@ -3338,6 +3389,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-treeify-npm-1.0.0-b5e04e9cd3-1b2397030d.zip/node_modules/@types/treeify/",\
           "packageDependencies": [\
             ["@types/treeify", "npm:1.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@types/uuid", [\
+        ["npm:9.0.1", {\
+          "packageLocation": "./.yarn/cache/@types-uuid-npm-9.0.1-b44e45eb8a-c472b8a77c.zip/node_modules/@types/uuid/",\
+          "packageDependencies": [\
+            ["@types/uuid", "npm:9.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -7617,6 +7677,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["js-levenshtein", [\
+        ["npm:1.1.6", {\
+          "packageLocation": "./.yarn/cache/js-levenshtein-npm-1.1.6-ab883e61a3-409f052a7f.zip/node_modules/js-levenshtein/",\
+          "packageDependencies": [\
+            ["js-levenshtein", "npm:1.1.6"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["js-sdsl", [\
         ["npm:4.4.0", {\
           "packageLocation": "./.yarn/cache/js-sdsl-npm-4.4.0-e8ec19da4a-7bb08a2d74.zip/node_modules/js-sdsl/",\
@@ -9419,6 +9488,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["root-workspace-0b6124", "workspace:."],\
             ["@apollo/server", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:4.7.1"],\
+            ["@apollo/subgraph", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.4.3"],\
             ["@faker-js/faker", "npm:7.6.0"],\
             ["@nestjs/apollo", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:11.0.5"],\
             ["@nestjs/axios", "virtual:dc3fc578bfa5e06182a4d2be39ede0bc5b74940b1ffe0d70c26892ab140a4699787750fba175dc306292e80b4aa2c8c5f68c2a821e69b2c37e360c0dff36ff66#npm:2.0.0"],\

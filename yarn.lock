@@ -102,6 +102,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@apollo/federation-internals@npm:2.4.3":
+  version: 2.4.3
+  resolution: "@apollo/federation-internals@npm:2.4.3"
+  dependencies:
+    "@types/uuid": ^9.0.0
+    chalk: ^4.1.0
+    js-levenshtein: ^1.1.6
+    uuid: ^9.0.0
+  peerDependencies:
+    graphql: ^16.5.0
+  checksum: c2f50a3b21382ed6ddfe3716f77bea56d1357af189621535d44d10b17b8dac3962ee5337fd58dd3df0a4ba5cd1e99aa535f2407819f6a11d4e04b84f076510a0
+  languageName: node
+  linkType: hard
+
 "@apollo/protobufjs@npm:1.2.7":
   version: 1.2.7
   resolution: "@apollo/protobufjs@npm:1.2.7"
@@ -183,6 +197,18 @@ __metadata:
   peerDependencies:
     graphql: ^16.6.0
   checksum: 6c8bdd240a4c688641bfec0520375db0eb78d2495286f30f962d7b6e97d7db70f105c09364e56103e1b93543e5760621666655eaa8ae7218312ac54ca7200d4b
+  languageName: node
+  linkType: hard
+
+"@apollo/subgraph@npm:^2.4.3":
+  version: 2.4.3
+  resolution: "@apollo/subgraph@npm:2.4.3"
+  dependencies:
+    "@apollo/cache-control-types": ^1.0.2
+    "@apollo/federation-internals": 2.4.3
+  peerDependencies:
+    graphql: ^16.5.0
+  checksum: aa6dfaf9e81ed589f8db6f139764dfe19afc396f7ebeff652f6c9b8631a4a306ab9913f74c3fa09f314480a8d34349793356018d7de7d227a29e122824933f96
   languageName: node
   linkType: hard
 
@@ -2188,6 +2214,13 @@ __metadata:
   version: 1.0.0
   resolution: "@types/treeify@npm:1.0.0"
   checksum: 1b2397030d13beee7f82b878ca80feeddb0d550a6b00d8be30082a370c0ac5985ecf7b9378cf93ea278ff00c3e900b416ae8d9379f2c7e8caecdece1dfc77380
+  languageName: node
+  linkType: hard
+
+"@types/uuid@npm:^9.0.0":
+  version: 9.0.1
+  resolution: "@types/uuid@npm:9.0.1"
+  checksum: c472b8a77cbeded4bc529220b8611afa39bd64677f507838f8083d8aac8033b1f88cb9ddaa2f8589e0dcd2317291d0f6e1379f82d5ceebd6f74f3b4825288e00
   languageName: node
   linkType: hard
 
@@ -5703,6 +5736,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-levenshtein@npm:^1.1.6":
+  version: 1.1.6
+  resolution: "js-levenshtein@npm:1.1.6"
+  checksum: 409f052a7f1141be4058d97da7860e08efd97fc588b7a4c5cfa0548bc04f6d576644dae65ab630266dff685d56fb90d494e03d4d79cb484c287746b4f1bf0694
+  languageName: node
+  linkType: hard
+
 "js-sdsl@npm:^4.1.4":
   version: 4.4.0
   resolution: "js-sdsl@npm:4.4.0"
@@ -7275,6 +7315,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@apollo/server": ^4.7.1
+    "@apollo/subgraph": ^2.4.3
     "@faker-js/faker": ^7.6.0
     "@nestjs/apollo": ^11.0.5
     "@nestjs/axios": ^2.0.0
