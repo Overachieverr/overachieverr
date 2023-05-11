@@ -142,22 +142,21 @@ RUN \
   eval "$(nodenv init -)"
 
 #------------------------------------
-#  Install Yarn
+#  Install pnpm
 #------------------------------------
-# renovate: datasource=github-releases depName=yarnpkg/berry
-ARG YARN_VERSION=3.5.0
+# renovate: datasource=github-releases depName=pnpm/pnpm
+ARG PNPM_VERSION=v8.5.0
 ENV PATH="${WORK_DIR}/node_modules/.bin:${PATH}"
 RUN corepack enable && \
-  corepack prepare "yarn@${YARN_VERSION}" --activate && \
-  runuser -u ${USER} -- corepack prepare "yarn@${YARN_VERSION}" --activate && \
+  corepack prepare "pnpm@${PNPM_VERSION}" --activate && \
+  runuser -u ${USER} -- corepack prepare "pnpm@${PNPM_VERSION}" --activate && \
   nodenv rehash
 
 #------------------------------------
 #  Install Node packages
 #------------------------------------
-COPY .yarn ./.yarn
-COPY .pnp.cjs .pnp.loader.mjs .yarnrc.yml package.json yarn.lock ./
-RUN yarn install --immutable --immutable-cache --inline-builds
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 
 #------------------------------------
 #  Finish up as root
@@ -178,7 +177,7 @@ USER ${USER}:${USER}
 # Set ENTRYPOINT and CMD
 #------------------------------------
 ENTRYPOINT [ "fixuid", "-q" ]
-CMD [ "yarn", "start:dev" ]
+CMD [ "pnpm", "dev" ]
 
 #------------------------------------
 # Configure environment

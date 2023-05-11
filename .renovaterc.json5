@@ -24,7 +24,7 @@
     },
   ],
   postUpdateOptions: [
-    "yarnDedupeHighest",
+    "pnpmDedupe",
   ],
   // See https://docs.renovatebot.com/modules/manager/regex/ for details on how the following section works
   regexManagers: [
