@@ -137,7 +137,7 @@ ARG NODE_VERSION=18.16.0
 ENV NODENV_VERSION=${NODE_VERSION}
 RUN \
   # Set this env var so that root sees it inside the container
-  echo "export NODEENV_VERSION=${NODENV_VERSION}" >> /root/.bashrc && \
+  echo "export NODENV_VERSION=${NODENV_VERSION}" >> /root/.bashrc && \
   nodenv install ${NODE_VERSION} && \
   eval "$(nodenv init -)"
 
@@ -146,17 +146,10 @@ RUN \
 #------------------------------------
 # renovate: datasource=github-releases depName=pnpm/pnpm
 ARG PNPM_VERSION=v8.5.0
-ENV PATH="${WORK_DIR}/node_modules/.bin:${PATH}"
 RUN corepack enable && \
   corepack prepare "pnpm@${PNPM_VERSION}" --activate && \
   runuser -u ${USER} -- corepack prepare "pnpm@${PNPM_VERSION}" --activate && \
   nodenv rehash
-
-#------------------------------------
-#  Install Node packages
-#------------------------------------
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --frozen-lockfile
 
 #------------------------------------
 #  Finish up as root
@@ -176,8 +169,8 @@ USER ${USER}:${USER}
 #------------------------------------
 # Set ENTRYPOINT and CMD
 #------------------------------------
-ENTRYPOINT [ "fixuid", "-q" ]
-CMD [ "pnpm", "dev" ]
+ENTRYPOINT ["fixuid", "-q"]
+CMD [ "pnpm", "install" ]
 
 #------------------------------------
 # Configure environment
