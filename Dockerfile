@@ -170,7 +170,7 @@ USER ${USER}:${USER}
 # Set ENTRYPOINT and CMD
 #------------------------------------
 ENTRYPOINT ["fixuid", "-q"]
-CMD [ "pnpm", "install" ]
+CMD /bin/sh -c "pnpm install && pnpm dev"
 
 #------------------------------------
 # Configure environment
