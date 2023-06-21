@@ -20,7 +20,7 @@
     "@apollo/server": "^4.7.1",
     "@apollo/subgraph": "^2.4.3",
     "@nestjs/apollo": "^11.0.5",
-    "@nestjs/axios": "^2.0.0",
+    "@nestjs/axios": "^3.0.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
