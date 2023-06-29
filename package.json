@@ -27,7 +27,7 @@
     "@nestjs/graphql": "^11.0.5",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/schedule": "^2.2.1",
-    "@nestjs/swagger": "^6.3.0",
+    "@nestjs/swagger": "^7.0.0",
     "@nestjs/terminus": "^9.2.2",
     "@prisma/client": "4.13.0",
     "@yarnpkg/pnpify": "^4.0.0-rc.43",
