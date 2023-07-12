@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM ubuntu:22.04@sha256:b24c5a75097671e95e6ddb19f9640d61e6a45adbcef7dd5e9b9f86d703325410 as dev
+FROM ubuntu:22.04@sha256:0bced47fffa3361afa981854fcabcd4577cd43cebbb808cea2b1f33a3dd7f508 as dev
 
 ARG TARGETPLATFORM
 ARG TARGETOS
@@ -102,7 +102,7 @@ RUN \
 #  Install actionlint
 #------------------------------------
 # renovate: datasource=github-releases depName=rhysd/actionlint
-ARG ACTIONLINT_VERSION=v1.6.24
+ARG ACTIONLINT_VERSION=v1.6.25
 RUN \
   curl -sSL https://github.com/rhysd/actionlint/releases/download/${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION#v}_${TARGETOS}_${TARGETARCH}.tar.gz | \
   tar -C /usr/local/bin -xzf - && \
@@ -112,7 +112,7 @@ RUN \
 #  Install shfmt
 #------------------------------------
 # renovate: datasource=github-releases depName=mvdan/sh
-ARG SHFMT_VERSION=v3.6.0
+ARG SHFMT_VERSION=v3.7.0
 RUN curl -sSL https://github.com/mvdan/sh/releases/download/${SHFMT_VERSION}/shfmt_${SHFMT_VERSION}_${TARGETOS}_${TARGETARCH} > /usr/local/bin/shfmt && \
   chmod 755 /usr/local/bin/shfmt
 
@@ -122,7 +122,7 @@ RUN curl -sSL https://github.com/mvdan/sh/releases/download/${SHFMT_VERSION}/shf
 # renovate: datasource=github-releases depName=nodenv/nodenv
 ARG NODENV_VERSION=v1.4.1
 # renovate: datasource=github-releases depName=nodenv/node-build
-ARG NODE_BUILD_VERSION=v4.9.113
+ARG NODE_BUILD_VERSION=v4.9.117
 ENV NODENV_ROOT="/usr/local/nodenv"
 ENV PATH="${NODENV_ROOT}/shims:${NODENV_ROOT}/bin:${PATH}"
 RUN git clone -b "${NODENV_VERSION}" --single-branch https://github.com/nodenv/nodenv.git ${NODENV_ROOT} && \
@@ -133,7 +133,7 @@ RUN git clone -b "${NODENV_VERSION}" --single-branch https://github.com/nodenv/n
 #  Install Node
 #------------------------------------
 # renovate: datasource=github-tags depName=nodejs/node versioning=node
-ARG NODE_VERSION=18.16.0
+ARG NODE_VERSION=18.16.1
 ENV NODENV_VERSION=${NODE_VERSION}
 RUN \
   # Set this env var so that root sees it inside the container
