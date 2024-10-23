@@ -1,5 +1,5 @@
-# syntax=docker/dockerfile:1.4
-FROM ubuntu:22.04@sha256:b24c5a75097671e95e6ddb19f9640d61e6a45adbcef7dd5e9b9f86d703325410 as dev
+# syntax=docker/dockerfile:1.10
+FROM ubuntu:22.04@sha256:0e5e4a57c2499249aafc3b40fcd541e9a456aab7296681a3994d631587203f97 as dev
 
 ARG TARGETPLATFORM
 ARG TARGETOS
@@ -75,7 +75,7 @@ RUN groupadd --gid $UID $USER && \
 #  Install fixuid
 #------------------------------------
 # renovate: datasource=github-releases depName=boxboat/fixuid
-ARG FIXUID_VERSION=v0.5.1
+ARG FIXUID_VERSION=v0.6.0
 RUN curl -SsL https://github.com/boxboat/fixuid/releases/download/${FIXUID_VERSION}/fixuid-${FIXUID_VERSION#v}-${TARGETOS}-${TARGETARCH}.tar.gz | \
   tar -C /usr/local/bin -xzf - && \
   chown root:root /usr/local/bin/fixuid && \
@@ -102,7 +102,7 @@ RUN \
 #  Install actionlint
 #------------------------------------
 # renovate: datasource=github-releases depName=rhysd/actionlint
-ARG ACTIONLINT_VERSION=v1.6.24
+ARG ACTIONLINT_VERSION=v1.7.3
 RUN \
   curl -sSL https://github.com/rhysd/actionlint/releases/download/${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION#v}_${TARGETOS}_${TARGETARCH}.tar.gz | \
   tar -C /usr/local/bin -xzf - && \
@@ -112,7 +112,7 @@ RUN \
 #  Install shfmt
 #------------------------------------
 # renovate: datasource=github-releases depName=mvdan/sh
-ARG SHFMT_VERSION=v3.6.0
+ARG SHFMT_VERSION=v3.10.0
 RUN curl -sSL https://github.com/mvdan/sh/releases/download/${SHFMT_VERSION}/shfmt_${SHFMT_VERSION}_${TARGETOS}_${TARGETARCH} > /usr/local/bin/shfmt && \
   chmod 755 /usr/local/bin/shfmt
 
@@ -120,9 +120,9 @@ RUN curl -sSL https://github.com/mvdan/sh/releases/download/${SHFMT_VERSION}/shf
 #  Install nodeenv
 #------------------------------------
 # renovate: datasource=github-releases depName=nodenv/nodenv
-ARG NODENV_VERSION=v1.4.1
+ARG NODENV_VERSION=v1.5.0
 # renovate: datasource=github-releases depName=nodenv/node-build
-ARG NODE_BUILD_VERSION=v4.9.113
+ARG NODE_BUILD_VERSION=v4.11.0
 ENV NODENV_ROOT="/usr/local/nodenv"
 ENV PATH="${NODENV_ROOT}/shims:${NODENV_ROOT}/bin:${PATH}"
 RUN git clone -b "${NODENV_VERSION}" --single-branch https://github.com/nodenv/nodenv.git ${NODENV_ROOT} && \
@@ -133,7 +133,7 @@ RUN git clone -b "${NODENV_VERSION}" --single-branch https://github.com/nodenv/n
 #  Install Node
 #------------------------------------
 # renovate: datasource=github-tags depName=nodejs/node versioning=node
-ARG NODE_VERSION=18.16.0
+ARG NODE_VERSION=18.20.4
 ENV NODENV_VERSION=${NODE_VERSION}
 RUN \
   # Set this env var so that root sees it inside the container
